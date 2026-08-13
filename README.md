@@ -10,7 +10,7 @@ Give your AI coding agent a URL and watch it recreate the website as a clean Nex
 
 [![Use this template](https://img.shields.io/badge/Use_this_template-Create_your_copy-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JCodesMore/ai-website-cloner-template/generate) [![Discord](https://img.shields.io/badge/Join_the_community-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/hrTSX5yTpB)
 
-[Quick Start](#quick-start) · [Watch Demo](#demo) · [Supported Platforms](#supported-platforms)
+[Quick Start](#quick-start) · [ChatGPT Private MVP](#use-directly-in-chatgpt-private-mvp) · [Watch Demo](#demo) · [Supported Platforms](#supported-platforms)
 
 <a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a> <a href="https://github.com/JCodesMore/ai-website-cloner-template"><img src="https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat" alt="Stars" /></a> <img src="https://img.shields.io/endpoint?url=https://gittokens.rsamf.com/badge/JCodesMore/ai-website-cloner-template" alt="tokens" />
 
@@ -72,11 +72,26 @@ Give your AI coding agent a URL and watch it recreate the website as a clean Nex
 
 > Most supported clients expose `/clone-website` directly. If your client activates skills from natural-language requests, enter `Clone <target-url> using the clone-website workflow`. Project instructions are in `AGENTS.md`.
 
+## Use directly in ChatGPT (private MVP)
+
+This repository now includes a private MCP workspace that lets ChatGPT act as the coding agent without exposing the project to a public MCP endpoint. ChatGPT can inspect an authorized public site, read and guard-write the bounded website workspace, run fixed quality checks, and verify the local preview.
+
+The recommended connection uses OpenAI Secure MCP Tunnel while both the Next.js app and MCP server remain on your computer:
+
+```bash
+npm ci
+npm run dev      # terminal 1
+npm run mcp:dev  # terminal 2
+```
+
+See [`mcp/README.md`](mcp/README.md) for tunnel creation, ChatGPT connection, security boundaries, example prompts, and troubleshooting.
+
 ## Supported Platforms
 
 | Agent                                                         | Status                     |
 | ------------------------------------------------------------- | -------------------------- |
 | [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | **Recommended** — Opus 5   |
+| [ChatGPT](mcp/README.md)                                     | **Private MCP MVP**        |
 | [Codex CLI](https://github.com/openai/codex)                  | Supported                  |
 | [OpenCode](https://opencode.ai/)                              | Supported                  |
 | [GitHub Copilot](https://github.com/features/copilot)         | Supported                  |
@@ -172,6 +187,8 @@ npm run build  # Production build
 npm run lint   # ESLint check
 npm run typecheck # TypeScript check
 npm run check  # Run lint + typecheck + build
+npm run mcp:dev   # Start the private ChatGPT MCP server
+npm run mcp:check # Typecheck, test, and build the MCP workspace
 ```
 
 ### If using docker

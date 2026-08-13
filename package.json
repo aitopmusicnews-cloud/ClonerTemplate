@@ -2,6 +2,9 @@
   "name": "ai-website-clone-template",
   "version": "0.4.0",
   "private": true,
+  "workspaces": [
+    "mcp"
+  ],
   "description": "Clone any website into a clean, modern Next.js codebase using AI coding agents",
   "author": "JCodesMore",
   "license": "MIT",
@@ -30,9 +33,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "mcp:dev": "npm run dev --workspace @cloner-template/mcp",
+    "mcp:start": "npm run start --workspace @cloner-template/mcp",
+    "mcp:test": "npm run test --workspace @cloner-template/mcp",
+    "mcp:typecheck": "npm run typecheck --workspace @cloner-template/mcp",
+    "mcp:build": "npm run build --workspace @cloner-template/mcp",
+    "mcp:check": "npm run check --workspace @cloner-template/mcp",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run build"
+    "check": "npm run lint && npm run typecheck && npm run build && npm run mcp:check"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",

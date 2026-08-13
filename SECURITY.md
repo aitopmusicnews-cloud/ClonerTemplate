@@ -50,3 +50,22 @@ This template is intended for authorized development, migration, recovery, and
 learning. See [Not Intended For](README.md#not-intended-for) for prohibited
 uses. Reports about abuse or copied content should not include sensitive
 security details in public channels.
+
+## Private ChatGPT MCP boundary
+
+The `mcp/` workspace is a private, single-operator development configuration.
+By default it binds only to loopback and is designed for OpenAI Secure MCP
+Tunnel. Keep `MCP_HOST=127.0.0.1`; non-loopback binding is rejected.
+
+The MCP server limits file visibility and writes, requires SHA-256 concurrency
+tokens for existing files, blocks path and symbolic-link escapes, accepts no
+model-supplied shell commands, and validates public inspection URLs and every
+redirect against private and reserved network ranges. These controls reduce
+the impact of mistakes and prompt injection; they do not make an
+unauthenticated public deployment safe.
+
+Do not expose this private MVP directly to the internet or to untrusted users.
+A public or multi-user deployment requires OAuth authorization, per-user
+workspace isolation, durable audit and rate-limit controls, secret management,
+and a separate security review. Never commit MCP environment files, tunnel
+runtime keys, or other credentials.

@@ -51,3 +51,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: MCP checks
+        run: npm run mcp:check
