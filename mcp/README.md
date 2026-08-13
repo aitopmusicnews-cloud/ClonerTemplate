@@ -23,7 +23,7 @@ Writes are limited to `src/`, `public/`, and `docs/research/`. Selected project 
 
 Requirements:
 
-- Node.js 24+
+- Node.js 22+
 - A private copy of this repository
 - A ChatGPT account or workspace where developer mode and Secure MCP Tunnel are available
 - `tunnel-client`, installed from the supported download in [Platform tunnel settings](https://platform.openai.com/settings/organization/tunnels) or on macOS with `brew install openai/tools/tunnel-client`

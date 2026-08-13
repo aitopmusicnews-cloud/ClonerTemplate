@@ -107,7 +107,7 @@ See [`mcp/README.md`](mcp/README.md) for tunnel creation, ChatGPT connection, se
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) 24+
+- [Node.js](https://nodejs.org/) 22+
 - An AI coding agent (see [Supported Platforms](#supported-platforms))
 
 ## Tech Stack
