@@ -46,6 +46,7 @@ describe("private MCP HTTP app", () => {
     const health = await fetch(`${baseUrl}/health`);
     expect(health.status).toBe(200);
     expect(await health.json()).toMatchObject({ status: "ok", service: "cloner-template-mcp" });
+    expect(await requestWithHost(address.port, "host.docker.internal")).toBe(200);
     expect(await requestWithHost(address.port, "attacker.example")).toBe(403);
 
     const client = new Client({ name: "cloner-template-test", version: "0.1.0" });
