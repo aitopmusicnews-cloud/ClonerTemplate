@@ -5,7 +5,7 @@ import { createClonerMcpServer } from "./mcp/cloner-server.js";
 import { WorkspaceStore } from "./workspace/workspace-store.js";
 
 function localHostOnly() {
-  const allowed = new Set(["127.0.0.1", "localhost", "::1"]);
+  const allowed = new Set(["127.0.0.1", "localhost", "::1", "host.docker.internal"]);
   return (req: Request, res: Response, next: NextFunction) => {
     const hostname = req.hostname.replace(/^\[|\]$/g, "");
     if (allowed.has(hostname)) {
